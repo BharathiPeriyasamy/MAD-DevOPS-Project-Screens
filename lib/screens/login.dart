@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:devops/login_api/login_api.dart';
+import 'package:devops/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowMaterialGrid: false,
       title: 'Login App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
@@ -53,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
         final tokenResponse = TokenResponse.fromJson(jsonData);
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const MyApp()),
+          MaterialPageRoute(builder: (context) =>  HomeScreen()),
         );
       } else {
         // Handle error
